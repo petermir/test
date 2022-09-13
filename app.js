@@ -19,9 +19,18 @@ app.use(function(error, req, res, next) {
   res.status(500).render('500');
 })
 
+// Adding an evn variable
+let port = 3000;
+// 'PORT' is the name heroku will use when it sets that variable
+if (process.env.PORT) {
+  port = process.env.PORT
+}
+
 db.initDatabase()
   .then(function () {
-    app.listen(3000);
+    // port 80 -> http
+    // port 443 -> https
+    app.listen(port);
   })
   .catch(function (error) {
     console.log('Connecting to the database failed!');
