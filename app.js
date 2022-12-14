@@ -20,7 +20,7 @@ app.use(function(error, req, res, next) {
 })
 
 // Adding an evn variable
-let PORT = 5000;
+const PORT = 5000;
 // 'PORT' is the name heroku will use when it sets that variable
 if (process.env.PORT) {
   PORT = process.env.PORT
